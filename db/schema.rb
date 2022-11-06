@@ -10,7 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_12_112352) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_06_105538) do
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.integer "phone_number"
+    t.date "hire_date"
+    t.integer "job_id"
+    t.integer "salary"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "manager_histories", force: :cascade do |t|
+    t.date "joining_date"
+    t.string "total_experience"
+    t.integer "manager_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["manager_id"], name: "index_manager_histories_on_manager_id"
+  end
+
+  create_table "managers", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "contact"
+    t.integer "department_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["department_id"], name: "index_managers_on_department_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "project_name"
+    t.integer "Budget"
+    t.integer "manager_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["manager_id"], name: "index_projects_on_manager_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followee_id"
@@ -35,4 +81,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_12_112352) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "manager_histories", "managers"
+  add_foreign_key "managers", "departments"
+  add_foreign_key "projects", "managers"
 end

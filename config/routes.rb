@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'employees/index'
+  get 'query/index'
   get 'p/:id', to: 'profile#show'
   post 'profile/follow', to: 'profile#follow'
   post 'profile/unfollow', to: 'profile#unfollow'
@@ -8,4 +10,5 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root 'home#index'
+  get 'home/:id', to: 'home#profilepage', as: 'profile_page'
 end
