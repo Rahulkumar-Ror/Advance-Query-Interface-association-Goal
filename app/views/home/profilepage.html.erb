@@ -1,0 +1,33 @@
+<h1>My profile</h1>
+<table class="table table-bordered mt-4">
+  <thead>
+    <tr>
+      <th> Departement ID</th>
+      <th> Deaprtment name</th>
+      <th> Manager ID</th>
+      <th> Manager Name</th>
+      <th> Manager email</th>
+      <th> Manager Contact</th>
+      <tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @department.id %></td>
+          <td><%= @department.name %></td>
+          <% if @department.manager.present? %>
+            <td><%= @department.manager.id %></td>
+            <td><%= @department.manager.name %></td>
+            <td><%= @department.manager.email %></td>
+            <td><%= @department.manager.contact %></td>
+            <tr>
+              <td>
+                <h5>Project name</h5>
+              </td>
+              <% @department.manager.projects.each do |p| %>
+                <td><%= p.id %># <%= p.project_name %></td>
+              <% end %>
+            <% end %>
+          </tr>
+        </tr>
+      </tbody>
+    </table>

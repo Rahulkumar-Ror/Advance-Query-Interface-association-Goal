@@ -1,0 +1,5 @@
+<h4>Has_one associations</h4>
+<% @department.each do |d| %>
+  <%= d.name %>
+  <%= link_to "My profile", profile_page_path(d.id) %>
+<% end %>

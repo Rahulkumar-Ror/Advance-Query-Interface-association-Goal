@@ -1,0 +1,271 @@
+<!-- List of all Employee Table -->
+<input type="button" value="List of all employee" onclick='myfunction();'>
+<div class="container" id="displaytable">
+  <div class="flex-column" id="displaytable">
+    <div>
+      <table class="table  table-striped">
+        <ol class="fs-2">
+          <thead class="table-dark">
+            <td class="text-center"> Id </td>
+            <td class="text-center"> First name </td>
+            <td class="text-center"> Last Name </td>
+            <td class="text-center"> Email </td>
+            <td class="text-center"> Phone number </td>
+            <td class="text-center"> Hired date </td>
+            <td class="text-center"> Job id </td>
+            <td class="text-center"> Salary </td>
+          </thead>
+          <% @employees.each do |e| %>
+            <tr>
+              <td class="text-center"> <%= e.id %> </td>
+              <td class="text-center"> <%= e.first_name %> </td>
+              <td class="text-center"> <%= e.last_name %> </td>
+              <td class="text-center"> <%= e.email %> </td>
+              <td class="text-center"> <%= e.phone_number %> </td>
+              <td class="text-center"> <%= e.hire_date %> </td>
+              <td class="text-center"> <%= e.job_id %> </td>
+              <td class="text-center"> <%= e.salary %> </td>
+            </tr>
+          <% end %>
+        </ol>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- List of First five Employee Table -->
+
+<div class="container">
+  <div class="flex-column">
+    <!-- Employee Table -->
+    <h5 class="bg bg-info text-center"> List of first 5 employee</h5>
+    <div>
+      <table class="table  table-striped">
+        <ol class="fs-2">
+          <thead class="table-dark">
+            <td class="text-center"> Id </td>
+            <td class="text-center"> First name </td>
+            <td class="text-center"> Last Name </td>
+            <td class="text-center"> Email </td>
+            <td class="text-center"> Phone number </td>
+            <td class="text-center"> Hired date </td>
+            <td class="text-center"> Job id </td>
+            <td class="text-center"> Salary </td>
+          </thead>
+          <% @employees.first(5).each do |e| %>
+            <tr>
+              <td class="text-center"> <%= e.id %> </td>
+              <td class="text-center"> <%= e.first_name %> </td>
+              <td class="text-center"> <%= e.last_name %> </td>
+              <td class="text-center"> <%= e.email %> </td>
+              <td class="text-center"> <%= e.phone_number %> </td>
+              <td class="text-center"> <%= e.hire_date %> </td>
+              <td class="text-center"> <%= e.job_id %> </td>
+              <td class="text-center"> <%= e.salary %> </td>
+            </tr>
+          <% end %>
+        </ol>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- List of Last five Employee Table -->
+
+<div class="container">
+  <div class="flex-column">
+    <!-- Employee Table -->
+    <h5 class="bg bg-info text-center"> List of Last 5 employee</h5>
+    <div>
+      <table class="table  table-striped">
+        <ol class="fs-2">
+          <thead class="table-dark">
+            <td class="text-center"> Id </td>
+            <td class="text-center"> First name </td>
+            <td class="text-center"> Last Name </td>
+            <td class="text-center"> Email </td>
+            <td class="text-center"> Phone number </td>
+            <td class="text-center"> Hired date </td>
+            <td class="text-center"> Job id </td>
+            <td class="text-center"> Salary </td>
+          </thead>
+          <% @employees.last(5).each do |e| %>
+            <tr>
+              <td class="text-center"> <%= e.id %> </td>
+              <td class="text-center"> <%= e.first_name %> </td>
+              <td class="text-center"> <%= e.last_name %> </td>
+              <td class="text-center"> <%= e.email %> </td>
+              <td class="text-center"> <%= e.phone_number %> </td>
+              <td class="text-center"> <%= e.hire_date %> </td>
+              <td class="text-center"> <%= e.job_id %> </td>
+              <td class="text-center"> <%= e.salary %> </td>
+            </tr>
+          <% end %>
+        </ol>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- List of All Employee in Descing order -->
+
+<div class="container">
+  <div class="flex-column">
+    <!-- Employee Table -->
+    <h5 class="bg bg-info text-center"> List of All employee in DSC order with id</h5>
+    <div>
+      <table class="table  table-striped">
+        <ol class="fs-2">
+          <thead class="table-dark">
+            <td class="text-center"> Id </td>
+            <td class="text-center"> First name </td>
+            <td class="text-center"> Last Name </td>
+            <td class="text-center"> Email </td>
+            <td class="text-center"> Phone number </td>
+            <td class="text-center"> Hired date </td>
+            <td class="text-center"> Job id </td>
+            <td class="text-center"> Salary </td>
+          </thead>
+          <% @employees.order(id: :desc).each do |e| %>
+            <tr>
+              <td class="text-center"> <%= e.id %> </td>
+              <td class="text-center"> <%= e.first_name %> </td>
+              <td class="text-center"> <%= e.last_name %> </td>
+              <td class="text-center"> <%= e.email %> </td>
+              <td class="text-center"> <%= e.phone_number %> </td>
+              <td class="text-center"> <%= e.hire_date %> </td>
+              <td class="text-center"> <%= e.job_id %> </td>
+              <td class="text-center"> <%= e.salary %> </td>
+            </tr>
+          <% end %>
+        </ol>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<!-- List of All Employee in with salary in asc order -->
+
+<div class="container">
+  <div class="flex-column">
+    <!-- Employee Table -->
+    <h5 class="bg bg-info text-center"> List of All employee in ASC order of salary</h5>
+    <div>
+      <table class="table  table-striped">
+        <ol class="fs-2">
+          <thead class="table-dark">
+            <td class="text-center"> Id </td>
+            <td class="text-center"> First name </td>
+            <td class="text-center"> Last Name </td>
+            <td class="text-center"> Email </td>
+            <td class="text-center"> Phone number </td>
+            <td class="text-center"> Hired date </td>
+            <td class="text-center"> Job id </td>
+            <td class="text-center"> Salary </td>
+          </thead>
+          <% @employees.order(salary: :asc).each do |e| %>
+            <tr>
+              <td class="text-center"> <%= e.id %> </td>
+              <td class="text-center"> <%= e.first_name %> </td>
+              <td class="text-center"> <%= e.last_name %> </td>
+              <td class="text-center"> <%= e.email %> </td>
+              <td class="text-center"> <%= e.phone_number %> </td>
+              <td class="text-center"> <%= e.hire_date %> </td>
+              <td class="text-center"> <%= e.job_id %> </td>
+              <td class="text-center"> <%= e.salary %> </td>
+            </tr>
+          <% end %>
+        </ol>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Condition in rails -->
+<!-- AND Condition  -->
+<div class="container">
+  <div class="flex-column">
+    <!-- Employee Table -->
+    <h5 class="bg bg-info text-center"> List of All employee with where method</h5>
+    <div>
+      <table class="table  table-striped">
+        <ol class="fs-2">
+          <thead class="table-dark">
+            <td class="text-center"> Id </td>
+            <td class="text-center"> First name </td>
+            <td class="text-center"> Last Name </td>
+            <td class="text-center"> Email </td>
+            <td class="text-center"> Phone number </td>
+            <td class="text-center"> Hired date </td>
+            <td class="text-center"> Job id </td>
+            <td class="text-center"> Salary </td>
+          </thead>
+          <% @employees.where(created_at: (Time.now - 1.day)..Time.now.tomorrow).each do |e| %>
+            <tr>
+              <td class="text-center"> <%= e.id %> </td>
+              <td class="text-center"> <%= e.first_name %> </td>
+              <td class="text-center"> <%= e.last_name %> </td>
+              <td class="text-center"> <%= e.email %> </td>
+              <td class="text-center"> <%= e.phone_number %> </td>
+              <td class="text-center"> <%= e.hire_date %> </td>
+              <td class="text-center"> <%= e.job_id %> </td>
+              <td class="text-center"> <%= e.salary %> </td>
+            </tr>
+          <% end %>
+        </ol>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- NOT Condition  -->
+
+<div class="container">
+  <div class="flex-column">
+    <!-- Employee Table -->
+    <h5 class="bg bg-info text-center"> List of All employee with where method</h5>
+    <div>
+      <table class="table  table-striped">
+        <ol class="fs-2">
+          <thead class="table-dark">
+            <td class="text-center"> Id </td>
+            <td class="text-center"> First name </td>
+            <td class="text-center"> Last Name </td>
+            <td class="text-center"> Email </td>
+            <td class="text-center"> Phone number </td>
+            <td class="text-center"> Hired date </td>
+            <td class="text-center"> Job id </td>
+            <td class="text-center"> Salary </td>
+          </thead>
+          <% @employees.where.not(ID: [1,3,5,7,9]).each do |e| %>
+            <tr>
+              <td class="text-center"> <%= e.id %> </td>
+              <td class="text-center"> <%= e.first_name %> </td>
+              <td class="text-center"> <%= e.last_name %> </td>
+              <td class="text-center"> <%= e.email %> </td>
+              <td class="text-center"> <%= e.phone_number %> </td>
+              <td class="text-center"> <%= e.hire_date %> </td>
+              <td class="text-center"> <%= e.job_id %> </td>
+              <td class="text-center"> <%= e.salary %> </td>
+            </tr>
+          <% end %>
+        </ol>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Javascript code for btton handling -->
+
+<script>
+function myfunction()
+{
+  if (document.getElementById("displaytable").style.display === "none")
+    document.getElementById("displaytable").style.display="block";
+  else
+    document.getElementById("displaytable").style.display="none";
+}
+</script>
